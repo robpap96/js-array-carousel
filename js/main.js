@@ -12,8 +12,6 @@ const images = [
 const chevronUp = '<i class="fa-solid fa-chevron-up"></i>';
 const chevronDown = '<i class="fa-solid fa-chevron-down"></i>';
 
-//creo le variabili che mi servono
-let active = 0;
 const container = document.querySelector('.container');
 
 //creo ed inserisco il div items
@@ -46,5 +44,38 @@ for(let i=0; i<images.length; i++) {
     item.id = i;
     items.append(item);
     document.getElementById(i).innerHTML = images[i];
+    
 }
+let i = 0;
+const activeItem = document.getElementById(i);
+activeItem.classList.add('active');
+let active = true;
 
+//al click di prev e next cambio foto con active
+// prev.addEventListener {
+
+// }
+next.addEventListener('click', function() {
+       
+        const activeOrNot = document.getElementById(i);
+        const nextItem = document.getElementById(i+1);
+    
+        activeOrNot.classList.remove('active');
+        nextItem.classList.add('active');
+        if(i === 0){
+            i++;
+        }
+        
+});
+prev.addEventListener('click', function() {
+       
+    const activeOrNot = document.getElementById(i);
+    const nextItem = document.getElementById(i+1);
+
+    activeOrNot.classList.remove('active');
+    nextItem.classList.add('active');
+    if(i === 0){
+        i++;
+    }
+    
+});
