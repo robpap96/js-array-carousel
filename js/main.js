@@ -56,26 +56,36 @@ let active = true;
 
 // }
 next.addEventListener('click', function() {
-       
-        const activeOrNot = document.getElementById(i);
-        const nextItem = document.getElementById(i+1);
-    
-        activeOrNot.classList.remove('active');
-        nextItem.classList.add('active');
-        if(i === 0){
-            i++;
-        }
-        
-});
-prev.addEventListener('click', function() {
-       
+      
+    let j = i + 1;
+    if(i === 4){
+        j = 0;
+    }
     const activeOrNot = document.getElementById(i);
-    const nextItem = document.getElementById(i+1);
+    const nextItem = document.getElementById(j);
 
     activeOrNot.classList.remove('active');
     nextItem.classList.add('active');
+    i++;
+    if(j === 0) {
+        i = 0;
+    }
+        
+});
+prev.addEventListener('click', function() {
+
+    let j = i - 1;    
     if(i === 0){
-        i++;
+        j = 4;
+    }
+    const activeOrNot = document.getElementById(i);
+    const prevItem = document.getElementById(j);
+
+    activeOrNot.classList.remove('active');
+    prevItem.classList.add('active');
+    i--;
+    if(j==4) {
+        i = 4;
     }
     
 });
